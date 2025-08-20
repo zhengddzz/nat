@@ -54,6 +54,9 @@
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
       }
+      .discount-badge {
+        @apply absolute -top-2 -right-2 bg-success text-white text-xs font-bold px-2 py-0.5 rounded-full;
+      }
     }
   </style>
   
@@ -88,7 +91,7 @@
               <div class="flex flex-wrap gap-3">
                 <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
                   <input type="radio" name="configoption[5691]" value="22892" checked="" class="sr-only" data-config="区域" data-value="湖北襄阳高防机房">
-                  <img src="https://blog.zhengddzz.com/wp-content/uploads/2025/08/CN.png" alt="中国国旗" class="w-5 h-5 mr-2">
+                  <img src="https://picsum.photos/id/237/20/20" alt="中国国旗" class="w-5 h-5 mr-2">
                   湖北襄阳高防机房
                 </label>
               </div>
@@ -148,6 +151,11 @@
                   <div class="text-center">
                     <h3 class="text-xl font-bold mb-2">2核2G</h3>
                     <p class="text-sm opacity-90">适合轻量应用、开发测试环境</p>
+                    <div class="text-xs mt-1 opacity-90">
+                      <p>默认NAT端口:20个</p>
+                      <p>带宽:上5Mbps/下50Mbps</p>
+                      <p>流量:无限 | 防御:200G DDoS</p>
+                    </div>
                     <p class="text-sm mt-2 font-medium">¥6/月起</p>
                   </div>
                 </label>
@@ -158,6 +166,11 @@
                   <div class="text-center">
                     <h3 class="text-xl font-bold mb-2">4核4G</h3>
                     <p class="text-sm text-gray-600">适合中小型网站、应用服务</p>
+                    <div class="text-xs mt-1 text-gray-600">
+                      <p>默认NAT端口:40个</p>
+                      <p>带宽:上15Mbps/下100Mbps</p>
+                      <p>流量:无限 | 防御:200G DDoS</p>
+                    </div>
                     <p class="text-sm mt-2 font-medium text-gray-700">¥11/月起</p>
                   </div>
                 </label>
@@ -168,6 +181,11 @@
                   <div class="text-center">
                     <h3 class="text-xl font-bold mb-2">8核8G</h3>
                     <p class="text-sm text-gray-600">适合中等负载业务系统</p>
+                    <div class="text-xs mt-1 text-gray-600">
+                      <p>默认NAT端口:50个</p>
+                      <p>带宽:上20Mbps/下100Mbps</p>
+                      <p>流量:无限 | 防御:200G DDoS</p>
+                    </div>
                     <p class="text-sm mt-2 font-medium text-gray-700">¥20/月起</p>
                   </div>
                 </label>
@@ -178,6 +196,11 @@
                   <div class="text-center">
                     <h3 class="text-xl font-bold mb-2">8核16G</h3>
                     <p class="text-sm text-gray-600">适合内存密集型应用、数据库</p>
+                    <div class="text-xs mt-1 text-gray-600">
+                      <p>默认NAT端口:100个</p>
+                      <p>带宽:上20Mbps/下150Mbps</p>
+                      <p>流量:无限 | 防御:200G DDoS</p>
+                    </div>
                     <p class="text-sm mt-2 font-medium text-gray-700">¥24/月起</p>
                   </div>
                 </label>
@@ -188,6 +211,11 @@
                   <div class="text-center">
                     <h3 class="text-xl font-bold mb-2">16核16G</h3>
                     <p class="text-sm text-gray-600">适合高并发计算、大型应用</p>
+                    <div class="text-xs mt-1 text-gray-600">
+                      <p>默认NAT端口:100个</p>
+                      <p>带宽:上30Mbps/下200Mbps</p>
+                      <p>流量:无限 | 防御:200G DDoS</p>
+                    </div>
                     <p class="text-sm mt-2 font-medium text-gray-700">¥30/月起</p>
                   </div>
                 </label>
@@ -306,15 +334,15 @@
                 </label>
                 <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
                   <input type="radio" name="configoption[5696]" value="22918" class="sr-only" data-config="数据盘" data-value="Lin30G,Win30G" data-datadisk="30">
-                  Lin30G,Win30G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+¥13</span>
+                  Lin30G,Win30G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+¥15</span>
                 </label>
                 <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
                   <input type="radio" name="configoption[5696]" value="22919" class="sr-only" data-config="数据盘" data-value="Lin60G,Win60G" data-datadisk="60">
-                  Lin60G,Win60G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+¥28</span>
+                  Lin60G,Win60G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+¥30</span>
                 </label>
                 <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
                   <input type="radio" name="configoption[5696]" value="22920" class="sr-only" data-config="数据盘" data-value="Lin100G,Win100G" data-datadisk="100">
-                  Lin100G,Win100G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+¥48</span>
+                  Lin100G,Win100G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+¥50</span>
                 </label>
               </div>
             </div>
@@ -357,7 +385,7 @@
               <i class="fa fa-calendar text-primary mr-3 w-5 text-center"></i>周期
             </h2>
             <div class="pl-8">
-              <div class="flex flex-wrap gap-3">
+              <div class="flex flex-wrap gap-3 relative">
                 <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
                   <input type="radio" name="billingcycle" value="monthly" checked="" class="sr-only" data-config="周期" data-value="月">
                   月
@@ -366,13 +394,15 @@
                   <input type="radio" name="billingcycle" value="quarterly" class="sr-only" data-config="周期" data-value="季">
                   季
                 </label>
-                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 relative">
                   <input type="radio" name="billingcycle" value="semiannually" class="sr-only" data-config="周期" data-value="半年">
                   半年
+                  <span class="discount-badge">9折</span>
                 </label>
-                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 relative">
                   <input type="radio" name="billingcycle" value="annually" class="sr-only" data-config="周期" data-value="年">
                   年
+                  <span class="discount-badge">85折</span>
                 </label>
               </div>
             </div>
@@ -393,32 +423,23 @@
             
             <div id="priceSummary" class="mb-6">
               <div class="flex justify-between py-2 border-t border-gray-100">
-                <span class="text-gray-600">基础价格</span>
-                <span id="basePrice" class="text-gray-800 font-medium">¥6/月</span>
+                <span class="text-gray-600">月单价</span>
+                <span id="monthlyPrice" class="text-gray-800 font-medium">¥6</span>
               </div>
               <div class="flex justify-between py-2">
-                <span class="text-gray-600">存储加价</span>
-                <span id="storagePrice" class="text-gray-800">¥0</span>
+                <span class="text-gray-600">周期</span>
+                <span id="periodText" class="text-gray-800">1个月</span>
               </div>
-              <div class="flex justify-between py-2">
-                <span class="text-gray-600">上行宽带加价</span>
-                <span id="bandwidthPrice" class="text-gray-800">¥0</span>
-              </div>
-              <div class="flex justify-between py-2">
-                <span class="text-gray-600">下行宽带加价</span>
-                <span id="inboundPrice" class="text-gray-800">¥0</span>
-              </div>
-              <div class="flex justify-between py-2">
-                <span class="text-gray-600">数据盘加价</span>
-                <span id="dataDiskPrice" class="text-gray-800">¥0</span>
-              </div>
-              <div class="flex justify-between py-2">
-                <span class="text-gray-600">端口加价</span>
-                <span id="portsPrice" class="text-gray-800">¥0</span>
+              <div id="discountRow" class="flex justify-between py-2 hidden">
+                <span class="text-gray-600">折扣</span>
+                <span id="discountText" class="text-success">-15%</span>
               </div>
               <div class="flex justify-between py-3 mt-2 border-t border-gray-200">
                 <span class="font-semibold">总计</span>
-                <span id="totalPrice" class="text-primary font-bold text-xl">¥6/月</span>
+                <span id="totalPrice" class="text-primary font-bold text-xl">¥6</span>
+              </div>
+              <div class="text-sm text-gray-500 mt-2">
+                <p id="priceDetail">折后均价: ¥6/月</p>
               </div>
             </div>
           </div>
@@ -447,9 +468,47 @@
       '16c16g': 30
     };
     
-    // 当前选中的操作系统类型
+    // 配置默认参数
+    const configDefaults = {
+      '2c2g': {
+        ports: 20,
+        bandwidth: 5,
+        inbound: 50
+      },
+      '4c4g': {
+        ports: 40,
+        bandwidth: 15,
+        inbound: 100
+      },
+      '8c8g': {
+        ports: 50,
+        bandwidth: 20,
+        inbound: 100
+      },
+      '8c16g': {
+        ports: 100,
+        bandwidth: 20,
+        inbound: 150
+      },
+      '16c16g': {
+        ports: 100,
+        bandwidth: 30,
+        inbound: 200
+      }
+    };
+    
+    // 周期折扣配置 - 已更新：半年9折，季度不优惠
+    const periodDiscounts = {
+      'monthly': { multiplier: 1, text: '1个月', discountPercent: 0 },
+      'quarterly': { multiplier: 3, text: '3个月', discountPercent: 0 },  // 季度不优惠
+      'semiannually': { multiplier: 6, text: '6个月', discountPercent: 10 },  // 半年9折
+      'annually': { multiplier: 12, text: '12个月', discountPercent: 15 }  // 年85折
+    };
+    
+    // 当前选中的操作系统类型和服务器配置
     let currentOsType = 'Windows';
     let currentServerConfig = '2c2g';
+    let currentPeriod = 'monthly';
     
     // 页面加载完成后初始化
     document.addEventListener('DOMContentLoaded', function() {
@@ -461,7 +520,17 @@
       document.querySelectorAll('input[name="server_config"]').forEach(radio => {
         radio.addEventListener('change', function() {
           currentServerConfig = this.value;
+          applyDefaultConfig(currentServerConfig);
           toggleDataDiskConfig(currentServerConfig);
+          updateConfigSummary();
+          calculatePrice();
+        });
+      });
+      
+      // 为周期选项添加事件监听
+      document.querySelectorAll('input[name="billingcycle"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+          currentPeriod = this.value;
           updateConfigSummary();
           calculatePrice();
         });
@@ -481,9 +550,42 @@
         updateConfigSummary();
       });
       
-      // 初始化显示状态
+      // 初始化显示状态和默认配置
+      applyDefaultConfig(currentServerConfig);
       toggleDataDiskConfig(currentServerConfig);
     });
+    
+    // 应用配置的默认参数
+    function applyDefaultConfig(config) {
+      const defaults = configDefaults[config];
+      
+      // 设置默认NAT端口
+      document.querySelectorAll('input[name="configoption[5699]"]').forEach(radio => {
+        if (parseInt(radio.getAttribute('data-ports')) === defaults.ports) {
+          radio.checked = true;
+          // 触发change事件以更新UI
+          radio.dispatchEvent(new Event('change'));
+        }
+      });
+      
+      // 设置默认上行宽带
+      document.querySelectorAll('input[name="configoption[5695]"]').forEach(radio => {
+        if (parseInt(radio.getAttribute('data-bandwidth')) === defaults.bandwidth) {
+          radio.checked = true;
+          // 触发change事件以更新UI
+          radio.dispatchEvent(new Event('change'));
+        }
+      });
+      
+      // 设置默认下行宽带
+      document.querySelectorAll('input[name="configoption[5698]"]').forEach(radio => {
+        if (parseInt(radio.getAttribute('data-inbound')) === defaults.inbound) {
+          radio.checked = true;
+          // 触发change事件以更新UI
+          radio.dispatchEvent(new Event('change'));
+        }
+      });
+    }
     
     // 根据服务器配置显示/隐藏数据盘配置
     function toggleDataDiskConfig(config) {
@@ -577,6 +679,10 @@
       const summaryContainer = document.getElementById('configSummary');
       summaryContainer.innerHTML = '';
       
+      // 添加防御信息
+      addSummaryItem(summaryContainer, 'DDoS攻击防御', '200G');
+      addSummaryItem(summaryContainer, '流量限制', '无限');
+      
       // 收集所有选中的配置项
       const configItems = {};
       
@@ -630,7 +736,7 @@
       container.appendChild(item);
     }
     
-    // 计算价格
+    // 计算价格 - 包含周期折扣和调整后的数据盘计费
     function calculatePrice() {
       // 获取基础价格
       const basePrice = configPrices[currentServerConfig];
@@ -638,42 +744,70 @@
       // 计算存储加价 (每增加10G加5元，基础是30G)
       const storageOption = document.querySelector('input[name="configoption[5697]"]:checked');
       const storageSize = parseInt(storageOption.getAttribute('data-storage'));
-      const storageAdd = Math.max(0, Math.floor((storageSize - 30) / 10)) * 5;
+      const storageAdd = Math.max(0, Math.ceil((storageSize - 30) / 10)) * 5;
       
-      // 计算上行宽带加价 (每增加5M加5元，基础是5M)
+      // 计算上行宽带加价 (每增加5M加5元，基础根据配置不同)
       const bandwidthOption = document.querySelector('input[name="configoption[5695]"]:checked');
       const bandwidthSize = parseInt(bandwidthOption.getAttribute('data-bandwidth'));
-      const bandwidthAdd = Math.max(0, Math.floor((bandwidthSize - 5) / 5)) * 5;
+      const baseBandwidth = configDefaults[currentServerConfig].bandwidth;
+      const bandwidthAdd = Math.max(0, Math.floor((bandwidthSize - baseBandwidth) / 5)) * 5;
       
-      // 计算下行宽带加价 (每增加50M加5元，基础是50M)
+      // 计算下行宽带加价 (每增加50M加5元，基础根据配置不同)
       const inboundOption = document.querySelector('input[name="configoption[5698]"]:checked');
       const inboundSize = parseInt(inboundOption.getAttribute('data-inbound'));
-      const inboundAdd = Math.max(0, Math.floor((inboundSize - 50) / 50)) * 5;
+      const baseInbound = configDefaults[currentServerConfig].inbound;
+      const inboundAdd = Math.max(0, Math.floor((inboundSize - baseInbound) / 50)) * 5;
       
-      // 计算数据盘加价 (每增加10G加5元，基础是5G)
+      // 计算数据盘加价 (5G免费，超过5G的部分按每10G5元计算，不足10G按10G算)
       let dataDiskAdd = 0;
       if (currentServerConfig !== '2c2g') {
         const dataDiskOption = document.querySelector('input[name="configoption[5696]"]:checked');
         const dataDiskSize = parseInt(dataDiskOption.getAttribute('data-datadisk'));
-        dataDiskAdd = Math.max(0, Math.floor((dataDiskSize - 5) / 10)) * 5;
+        
+        // 5G免费，超过5G的部分按每10G5元计算（不足10G按10G算）
+        const exceedSize = Math.max(0, dataDiskSize - 5); // 计算超过5G的部分
+        dataDiskAdd = Math.ceil(exceedSize / 10) * 5; // 对超出部分向上取整计费
       }
       
-      // 计算端口加价 (每增加10个端口加5元，基础是20个)
+      // 计算端口加价 (每增加10个端口加5元，基础根据配置不同)
       const portsOption = document.querySelector('input[name="configoption[5699]"]:checked');
-      const portsCount = parseInt(portsOption.getAttribute('data-ports'));
-      const portsAdd = Math.max(0, Math.floor((portsCount - 20) / 10)) * 5;
+      const portsCount = parseInt(portsOption。getAttribute('data-ports'));
+      const basePorts = configDefaults[currentServerConfig]。ports;
+      const portsAdd = Math。max(0， Math。floor((portsCount - basePorts) / 10)) * 5;
+      
+      // 计算月单价
+      const monthlyPrice = basePrice + storageAdd + bandwidthAdd + inboundAdd + dataDiskAdd + portsAdd;
+      
+      // 获取周期折扣信息
+      const periodInfo = periodDiscounts[currentPeriod];
+      const hasDiscount = periodInfo.discountPercent > 0;
       
       // 计算总价
-      const totalPrice = basePrice + storageAdd + bandwidthAdd + inboundAdd + dataDiskAdd + portsAdd;
+      const totalBeforeDiscount = monthlyPrice * periodInfo.multiplier;
+      const discountAmount = totalBeforeDiscount * (periodInfo.discountPercent / 100);
+      const totalPrice = totalBeforeDiscount - discountAmount;
+      
+      // 计算折后均价
+      const averageMonthlyPrice = totalPrice / periodInfo.multiplier;
       
       // 更新价格显示
-      document.getElementById('basePrice').textContent = `¥${basePrice}/月`;
-      document.getElementById('storagePrice').textContent = `¥${storageAdd}`;
-      document.getElementById('bandwidthPrice').textContent = `¥${bandwidthAdd}`;
-      document.getElementById('inboundPrice').textContent = `¥${inboundAdd}`;
-      document.getElementById('dataDiskPrice').textContent = `¥${dataDiskAdd}`;
-      document.getElementById('portsPrice').textContent = `¥${portsAdd}`;
-      document.getElementById('totalPrice').textContent = `¥${totalPrice}/月`;
+      document。getElementById('monthlyPrice')。textContent = `¥${monthlyPrice}`;
+      document。getElementById('periodText')。textContent = periodInfo.text;
+      
+      // 显示或隐藏折扣信息
+      const discountRow = document.getElementById('discountRow');
+      const discountText = document.getElementById('discountText');
+      
+      if (hasDiscount) {
+        discountRow.classList.remove('hidden');
+        discountText.textContent = `- ${periodInfo.discountPercent}%`;
+      } else {
+        discountRow.classList.add('hidden');
+      }
+      
+      // 更新总价和均价
+      document.getElementById('totalPrice')。textContent = `¥${Math.round(totalPrice)}`;
+      document.getElementById('priceDetail').textContent = `折后均价: ¥${averageMonthlyPrice.toFixed(2)}/月`;
     }
     
     // 为所有单选按钮添加点击事件（样式更新）
@@ -697,4 +831,6 @@
       });
     });
   </script>
-</body></html>
+
+
+    </body></html>
