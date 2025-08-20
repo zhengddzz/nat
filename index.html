@@ -68,8 +68,8 @@
     <!-- 配置卡片容器 -->
     <div class="max-w-5xl mx-auto space-y-6">
       <!-- 隐藏字段 -->
-      <input type="hidden" name="pid" value="232">
-      <input type="hidden" name="currencyid" value="1">
+      <input 输入="hidden" name="pid" value="232">
+      <input 输入="hidden" name="currencyid" value="1">
       <input name="qty" type="hidden" value="1">
       
       <!-- 区域配置卡片 -->
@@ -80,21 +80,21 @@
         <div class="pl-8">
           <div class="flex flex-wrap gap-3">
             <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
-              <input type="radio" name="configoption[5691]" value="22892" checked class="sr-only">
-              <img src="https://picsum.photos/20/20" alt="中国国旗" class="w-5 h-5 mr-2">
-              湖北襄阳高防数据计算中心
+              <input 输入="radio" name="configoption[5691]" value="22892" checked class="sr-only">
+              <img src="https://www.xhyvps.cn/upload/common/country/CN.png" alt="中国国旗" class="w-5 h-5 mr-2">
+              湖北襄阳高防机房
             </label>
           </div>
         </div>
       </div>
       
-      <!-- 操作系统配置卡片 - 并列展示版（无图标和介绍） -->
+      <!-- 操作系统配置卡片 -->
       <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
         <h2 class="text-lg font-semibold mb-5 flex items-center">
           <i class="fa fa-windows text-primary mr-3 w-5 text-center"></i>操作系统
         </h2>
         <div class="pl-8">
-          <!-- 操作系统类型选择 - 并列展示（无图标和介绍） -->
+          <!-- 操作系统类型选择-->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <div class="os-card-active border rounded-lg p-4 cursor-pointer text-center card-transition hover:shadow-md" onclick="selectOsType('Windows')">
               <span class="font-medium">Windows</span>
@@ -220,7 +220,7 @@
       <!-- 带宽配置卡片 -->
       <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
         <h2 class="text-lg font-semibold mb-5 flex items-center">
-          <i class="fa fa-wifi text-primary mr-3 w-5 text-center"></i>带宽
+          <i class="fa fa-wifi text-primary mr-3 w-5 text-center"></i>上行带宽
         </h2>
         <div class="pl-8">
           <div class="flex flex-wrap gap-3">
@@ -255,7 +255,7 @@
       <!-- 流入带宽配置卡片 -->
       <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
         <h2 class="text-lg font-semibold mb-5 flex items-center">
-          <i class="fa fa-download text-primary mr-3 w-5 text-center"></i>流入带宽
+          <i class="fa fa-download text-primary mr-3 w-5 text-center"></i>下行带宽
         </h2>
         <div class="pl-8">
           <div class="flex flex-wrap gap-3">
@@ -388,13 +388,6 @@
           </div>
           <label id="password-error-tip" class="control-label error-tip" for="password"></label>
         </div>
-      </div>
-      
-      <!-- 操作按钮 -->
-      <div class="flex justify-end mt-8">
-        <button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-medium card-transition transform hover:scale-[1.02] flex items-center">
-          <i class="fa fa-shopping-cart mr-2"></i>加入购物车
-        </button>
       </div>
     </div>
   </main>
