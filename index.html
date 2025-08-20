@@ -641,12 +641,12 @@
       const storageAdd = Math.max(0, Math.floor((storageSize - 30) / 10)) * 5;
       
       // 计算上行宽带加价 (每增加5M加5元，基础是5M)
-      const bandwidthOption = document。querySelector('input[name="configoption[5695]"]:checked');
-      const bandwidthSize = parseInt(bandwidthOption。getAttribute('data-bandwidth'));
-      const bandwidthAdd = Math。max(0， Math。floor((bandwidthSize - 5) / 5)) * 5;
+      const bandwidthOption = document.querySelector('input[name="configoption[5695]"]:checked');
+      const bandwidthSize = parseInt(bandwidthOption.getAttribute('data-bandwidth'));
+      const bandwidthAdd = Math.max(0, Math.floor((bandwidthSize - 5) / 5)) * 5;
       
       // 计算下行宽带加价 (每增加50M加5元，基础是50M)
-      const inboundOption = document。querySelector('input[name="configoption[5698]"]:checked');
+      const inboundOption = document.querySelector('input[name="configoption[5698]"]:checked');
       const inboundSize = parseInt(inboundOption.getAttribute('data-inbound'));
       const inboundAdd = Math.max(0, Math.floor((inboundSize - 50) / 50)) * 5;
       
@@ -655,7 +655,7 @@
       if (currentServerConfig !== '2c2g') {
         const dataDiskOption = document.querySelector('input[name="configoption[5696]"]:checked');
         const dataDiskSize = parseInt(dataDiskOption.getAttribute('data-datadisk'));
-        dataDiskAdd = Math。max(0， Math.floor((dataDiskSize - 5) / 10)) * 5;
+        dataDiskAdd = Math.max(0, Math.floor((dataDiskSize - 5) / 10)) * 5;
       }
       
       // 计算端口加价 (每增加10个端口加5元，基础是20个)
@@ -667,8 +667,8 @@
       const totalPrice = basePrice + storageAdd + bandwidthAdd + inboundAdd + dataDiskAdd + portsAdd;
       
       // 更新价格显示
-      document。getElementById('basePrice')。textContent = `¥${basePrice}/月`;
-      document。getElementById('storagePrice')。textContent = `¥${storageAdd}`;
+      document.getElementById('basePrice').textContent = `¥${basePrice}/月`;
+      document.getElementById('storagePrice').textContent = `¥${storageAdd}`;
       document.getElementById('bandwidthPrice').textContent = `¥${bandwidthAdd}`;
       document.getElementById('inboundPrice').textContent = `¥${inboundAdd}`;
       document.getElementById('dataDiskPrice').textContent = `¥${dataDiskAdd}`;
@@ -697,6 +697,4 @@
       });
     });
   </script>
-
-
-    </body></html>
+</body></html>
