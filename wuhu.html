@@ -1,0 +1,889 @@
+<html lang="zh-CN"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 引入外部资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            neutral: '#F5F7FA',
+            dark: '#1D2129',
+            light: '#F2F3F5',
+            success: '#00B42A',
+            warning: '#FF7D00',
+            danger: '#F53F3F'
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+            'card-hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .option-active {
+        @apply bg-primary text-white border-primary;
+      }
+      .card-transition {
+        @apply transition-all duration-300 ease-in-out;
+      }
+      .config-card-active {
+        @apply border-primary bg-primary/5 shadow-md;
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .discount-badge {
+        @apply absolute -top-2 -right-2 bg-success text-white text-xs font-bold px-2 py-0.5 rounded-full;
+      }
+    }
+  </style>
+  
+  <title>服务器配置 - 芜湖弹性云电脑</title>
+</head>
+
+<body class="font-inter bg-gray-50 text-dark">
+  <!-- 主要内容 -->
+  <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- 页面标题 -->
+    <div class="text-center mb-10">
+      <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark">服务器配置</h1>
+      <p class="text-gray-500 mt-2 max-w-2xl mx-auto">选择适合您业务需求的芜湖弹性云电脑配置，灵活定制计算资源</p>
+    </div>
+    
+    <!-- 配置卡片容器 -->
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- 配置选项区域 -->
+        <div class="lg:w-2/3 space-y-6">
+          <!-- 隐藏字段 -->
+          <input type="hidden" name="pid" value="233">
+          <input type="hidden" name="currencyid" value="1">
+          <input name="qty" type="hidden" value="1">
+          
+          <!-- 区域配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-map-marker text-primary mr-3 w-5 text-center"></i>区域
+            </h2>
+            <div class="pl-8">
+              <div class="flex flex-wrap gap-3">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="configoption[5691]" value="22892" class="sr-only" data-config="区域" data-value="湖北襄阳高防机房" onclick="window.location.href='/index.html'">
+                  <img src="https://blog.zhengddzz.com/wp-content/uploads/2025/08/CN.png" alt="中国国旗" class="w-5 h-5 mr-2">
+                  湖北襄阳高防机房
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
+                  <input type="radio" name="configoption[5691]" value="wuhu" checked="" class="sr-only" data-config="区域" data-value="芜湖高性能机房">
+                  <img src="https://blog.zhengddzz.com/wp-content/uploads/2025/08/CN.png" alt="中国国旗" class="w-5 h-5 mr-2">
+                  芜湖弹性云电脑
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 操作系统配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-windows text-primary mr-3 w-5 text-center"></i>操作系统
+            </h2>
+            <div class="pl-8">
+              <!-- 操作系统类型选择 -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
+                <div class="config-card-active border rounded-lg p-4 cursor-pointer text-center card-transition hover:shadow-md" onclick="selectOsType('Windows')">
+                  <span class="font-medium">Windows</span>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4 cursor-pointer text-center card-transition hover:shadow-md hover:border-primary/50" onclick="selectOsType('TencentOS')">
+                  <span class="font-medium">TencentOS</span>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4 cursor-pointer text-center card-transition hover:shadow-md hover:border-primary/50" onclick="selectOsType('Ubuntu')">
+                  <span class="font-medium">Ubuntu</span>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4 cursor-pointer text-center card-transition hover:shadow-md hover:border-primary/50" onclick="selectOsType('Debian')">
+                  <span class="font-medium">Debian</span>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4 cursor-pointer text-center card-transition hover:shadow-md hover:border-primary/50" onclick="selectOsType('CentOS')">
+                  <span class="font-medium">CentOS</span>
+                </div>
+              </div>
+              
+              <!-- 操作系统版本选择 -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">选择版本</label>
+                <select id="osVersion" name="configoption[5692]" class="w-full p-3 border border-gray-200 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary card-transition" data-config="操作系统版本">
+                  <option value="win10">Windows 10 专业版</option>
+                  <option value="win11">Windows 11 专业版</option>
+                  <option value="win2019">Windows Server 2019</option>
+                  <option value="win2022">Windows Server 2022</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+          <!-- CPU配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-microchip text-primary mr-3 w-5 text-center"></i>CPU
+            </h2>
+            <div class="pl-8">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <label class="block border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md p-4">
+                  <input type="radio" name="cpu" value="2c" checked="" class="sr-only" data-config="CPU" data-value="2核" data-price="1.8">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">2核</span>
+                    <span class="text-sm">默认</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="cpu" value="4c" class="sr-only" data-config="CPU" data-value="4核" data-price="3.5">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">4核</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+1.7元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="cpu" value="8c" class="sr-only" data-config="CPU" data-value="8核" data-price="6.8">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">8核</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+5元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="cpu" value="12c" class="sr-only" data-config="CPU" data-value="12核" data-price="10">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">12核</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+8.2元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="cpu" value="16c" class="sr-only" data-config="CPU" data-value="16核" data-price="13.5">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">16核</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+11.7元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="cpu" value="24c" class="sr-only" data-config="CPU" data-value="24核" data-price="20">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">24核</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+18.2元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="cpu" value="32c" class="sr-only" data-config="CPU" data-value="32核" data-price="27">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">32核</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+25.2元</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 内存配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-memory text-primary mr-3 w-5 text-center"></i>内存
+            </h2>
+            <div class="pl-8">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <label class="block border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md p-4">
+                  <input type="radio" name="memory" value="2g" checked="" class="sr-only" data-config="内存" data-value="2G" data-price="1.8">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">2G</span>
+                    <span class="text-sm">默认</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="memory" value="4g" class="sr-only" data-config="内存" data-value="4G" data-price="3.5">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">4G</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+1.7元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="memory" value="6g" class="sr-only" data-config="内存" data-value="6G" data-price="5">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">6G</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+3.2元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="memory" value="8g" class="sr-only" data-config="内存" data-value="8G" data-price="6.8">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">8G</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+5元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="memory" value="12g" class="sr-only" data-config="内存" data-value="12G" data-price="10">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">12G</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+8.2元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="memory" value="24g" class="sr-only" data-config="内存" data-value="24G" data-price="20">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">24G</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+18.2元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="memory" value="32g" class="sr-only" data-config="内存" data-value="32G" data-price="27">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">32G</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+25.2元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="memory" value="64g" class="sr-only" data-config="内存" data-value="64G" data-price="53">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">64G</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+51.2元</span>
+                  </div>
+                </label>
+                
+                <label class="block border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 p-4">
+                  <input type="radio" name="memory" value="128g" class="sr-only" data-config="内存" data-value="128G" data-price="106">
+                  <div class="flex justify-between items-center">
+                    <span class="font-medium">128G</span>
+                    <span class="text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+104.2元</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 系统盘配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-hdd-o text-primary mr-3 w-5 text-center"></i>系统盘
+            </h2>
+            <div class="pl-8">
+              <div class="flex flex-wrap gap-3">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
+                  <input type="radio" name="system_disk" value="30g" checked="" class="sr-only" data-config="系统盘" data-value="30G" data-price="0">
+                  30G <span class="ml-2 text-xs bg-white/20 px-1.5 py-0.5 rounded">默认</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="system_disk" value="50g" class="sr-only" data-config="系统盘" data-value="50G" data-price="8.5">
+                  50G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+8.5元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="system_disk" value="80g" class="sr-only" data-config="系统盘" data-value="80G" data-price="20">
+                  80G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+20元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="system_disk" value="100g" class="sr-only" data-config="系统盘" data-value="100G" data-price="28">
+                  100G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+28元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="system_disk" value="200g" class="sr-only" data-config="系统盘" data-value="200G" data-price="70">
+                  200G <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+70元</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 上行宽带配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-wifi text-primary mr-3 w-5 text-center"></i>上行宽带
+            </h2>
+            <div class="pl-8">
+              <div class="flex flex-wrap gap-3">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
+                  <input type="radio" name="upload_bandwidth" value="10mbps" checked="" class="sr-only" data-config="上行宽带" data-value="10Mbps" data-price="0">
+                  10Mbps <span class="ml-2 text-xs bg-white/20 px-1.5 py-0.5 rounded">默认</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="upload_bandwidth" value="15mbps" class="sr-only" data-config="上行宽带" data-value="15Mbps" data-price="4.5">
+                  15Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+4.5元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="upload_bandwidth" value="20mbps" class="sr-only" data-config="上行宽带" data-value="20Mbps" data-price="8.5">
+                  20Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+8.5元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="upload_bandwidth" value="25mbps" class="sr-only" data-config="上行宽带" data-value="25Mbps" data-price="12">
+                  25Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+12元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="upload_bandwidth" value="30mbps" class="sr-only" data-config="上行宽带" data-value="30Mbps" data-price="16">
+                  30Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+16元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="upload_bandwidth" value="40mbps" class="sr-only" data-config="上行宽带" data-value="40Mbps" data-price="25">
+                  40Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+25元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="upload_bandwidth" value="50mbps" class="sr-only" data-config="上行宽带" data-value="50Mbps" data-price="33">
+                  50Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+33元</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 下行宽带配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-download text-primary mr-3 w-5 text-center"></i>下行宽带
+            </h2>
+            <div class="pl-8">
+              <div class="flex flex-wrap gap-3">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
+                  <input type="radio" name="download_bandwidth" value="20mbps" checked="" class="sr-only" data-config="下行宽带" data-value="20Mbps" data-price="0">
+                  20Mbps <span class="ml-2 text-xs bg-white/20 px-1.5 py-0.5 rounded">默认</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="download_bandwidth" value="50mbps" class="sr-only" data-config="下行宽带" data-value="50Mbps" data-price="4.5">
+                  50Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+4.5元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="download_bandwidth" value="100mbps" class="sr-only" data-config="下行宽带" data-value="100Mbps" data-price="8.5">
+                  100Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+8.5元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="download_bandwidth" value="500mbps" class="sr-only" data-config="下行宽带" data-value="500Mbps" data-price="42">
+                  500Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+42元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="download_bandwidth" value="1000mbps" class="sr-only" data-config="下行宽带" data-value="1000Mbps" data-price="85">
+                  1000Mbps <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+85元</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 数据盘配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-database text-primary mr-3 w-5 text-center"></i>数据盘
+            </h2>
+            <div class="pl-8">
+              <div class="flex items-center mb-4">
+                <label class="block text-sm font-medium text-gray-700 mr-4">容量</label>
+                <div class="flex items-center flex-1">
+                  <input type="range" id="data_disk_slider" min="0" max="1000" value="0" step="1" 
+                         class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                         oninput="updateDataDiskValue(this.value)">
+                  <span id="data_disk_value" class="ml-4 min-w-[60px] text-center font-medium">0G</span>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <label class="block text-sm font-medium text-gray-700 mr-4">价格</label>
+                <div id="data_disk_price" class="font-medium">¥0.00</div>
+                <div class="ml-2 text-sm text-gray-500">每增加1G +¥0.45</div>
+              </div>
+              <input type="hidden" id="data_disk" name="data_disk" value="0" 
+                     data-config="数据盘" data-value="0G" data-price="0">
+            </div>
+          </div>
+          
+          <!-- NAT转发配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-random text-primary mr-3 w-5 text-center"></i>NAT转发（端口数量）
+            </h2>
+            <div class="pl-8">
+              <div class="flex flex-wrap gap-3">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
+                  <input type="radio" name="nat_ports" value="3" checked="" class="sr-only" data-config="NAT转发" data-value="3个" data-price="0">
+                  3个 <span class="ml-2 text-xs bg-white/20 px-1.5 py-0.5 rounded">默认</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="nat_ports" value="10" class="sr-only" data-config="NAT转发" data-value="10个" data-price="4.5">
+                  10个 <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+4.5元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="nat_ports" value="100" class="sr-only" data-config="NAT转发" data-value="100个" data-price="8.5">
+                  100个 <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+8.5元</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="nat_ports" value="unlimited" class="sr-only" data-config="NAT转发" data-value="无限（独立IP）" data-price="17">
+                  无限（独立IP） <span class="ml-2 text-xs bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded">+17元</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 共享建站配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-globe text-primary mr-3 w-5 text-center"></i>共享建站
+            </h2>
+            <div class="pl-8">
+              <div class="flex flex-wrap gap-3">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
+                  <input type="radio" name="shared_hosting" value="3" checked="" class="sr-only" data-config="共享建站" data-value="3个" data-price="0">
+                  3个 <span class="ml-2 text-xs bg-white/20 px-1.5 py-0.5 rounded">默认</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="shared_hosting" value="10" class="sr-only" data-config="共享建站" data-value="10个" data-price="0">
+                  10个
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="shared_hosting" value="20" class="sr-only" data-config="共享建站" data-value="20个" data-price="0">
+                  20个
+                </label>
+              </div>
+              <p class="text-sm text-gray-500 mt-3">可用于搭建多个网站，免费选择</p>
+            </div>
+          </div>
+          
+          <!-- 周期配置卡片 -->
+          <div class="bg-white rounded-xl shadow-card p-6 md:p-7 card-transition hover:shadow-card-hover">
+            <h2 class="text-lg font-semibold mb-5 flex items-center">
+              <i class="fa fa-calendar text-primary mr-3 w-5 text-center"></i>周期
+            </h2>
+            <div class="pl-8">
+              <div class="flex flex-wrap gap-3 relative">
+                <label class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
+                  <input type="radio" name="billingcycle" value="monthly" checked="" class="sr-only" data-config="周期" data-value="月">
+                  月
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
+                  <input type="radio" name="billingcycle" value="quarterly" class="sr-only" data-config="周期" data-value="季">
+                  季
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 relative">
+                  <input type="radio" name="billingcycle" value="semiannually" class="sr-only" data-config="周期" data-value="半年">
+                  半年
+                  <span class="discount-badge">9折</span>
+                </label>
+                <label class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50 relative">
+                  <input type="radio" name="billingcycle" value="annually" class="sr-only" data-config="周期" data-value="年">
+                  年
+                  <span class="discount-badge">85折</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 配置汇总区域 -->
+        <div class="lg:w-1/3">
+          <div class="sticky top-4 bg-white rounded-xl shadow-card p-6 md:p-7 card-transition">
+            <h2 class="text-lg font-semibold mb-5 pb-3 border-b border-gray-100">配置汇总</h2>
+            
+            <div id="configSummary" class="space-y-3 mb-6">
+              <!-- 汇总内容将通过JS动态生成 -->
+            </div>
+            
+            <div id="priceSummary" class="mb-6">
+              <div class="flex justify-between py-2 border-t border-gray-100">
+                <span class="text-gray-600">月单价</span>
+                <span id="monthlyPrice" class="text-gray-800 font-medium">¥3.6</span>
+              </div>
+              <div class="flex justify-between py-2">
+                <span class="text-gray-600">周期</span>
+                <span id="periodText" class="text-gray-800">1个月</span>
+              </div>
+              <div id="discountRow" class="flex justify-between py-2 hidden">
+                <span class="text-gray-600">折扣</span>
+                <span id="discountText" class="text-success">-15%</span>
+              </div>
+              <div class="flex justify-between py-3 mt-2 border-t border-gray-200">
+                <span class="font-semibold">总计</span>
+                <span id="totalPrice" class="text-primary font-bold text-xl">¥3.6</span>
+              </div>
+              <div class="text-sm text-gray-500 mt-2">
+                <p id="priceDetail">折后均价: ¥3.6/月</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- 白色页脚 -->
+  <footer class="bg-white border-t border-gray-200 py-8 mt-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto text-center">
+        <p class="text-gray-600">© 2023 zhengddzz. 保留所有权利.</p>
+        <p class="mt-2 text-gray-600"><a href="https://www.zhengddzz.com" class="text-primary hover:underline transition-colors" target="_blank">www.zhengddzz.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 周期折扣配置
+    const periodDiscounts = {
+      'monthly': { multiplier: 1, text: '1个月', discountPercent: 0 },
+      'quarterly': { multiplier: 3, text: '3个月', discountPercent: 0 },
+      'semiannually': { multiplier: 6, text: '6个月', discountPercent: 10 },
+      'annually': { multiplier: 12, text: '12个月', discountPercent: 15 }
+    };
+    
+    // 当前选中的操作系统类型和周期
+    let currentOsType = 'Windows';
+    let currentPeriod = 'monthly';
+    
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', function() {
+      // 初始化配置汇总和价格计算
+      updateConfigSummary();
+      calculatePrice();
+      
+      // 为周期选项添加事件监听
+      document.querySelectorAll('input[name="billingcycle"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+          currentPeriod = this.value;
+          updateConfigSummary();
+          calculatePrice();
+        });
+      });
+      
+      // 为所有带data-config属性的单选按钮添加事件监听
+      document.querySelectorAll('input[data-config]').forEach(radio => {
+        radio.addEventListener('change', function() {
+          // 更新单选按钮的样式
+          if (this.type === 'radio') {
+            const name = this.getAttribute('name');
+            document.querySelectorAll(`input[name="${name}"]`).forEach(elem => {
+              const parent = elem.parentElement;
+              if (elem.checked) {
+                parent.classList.add('border-primary', 'bg-primary', 'text-white');
+                parent.classList.remove('border-gray-200', 'hover:border-primary/70', 'hover:bg-gray-50');
+              } else {
+                parent.classList.remove('border-primary', 'bg-primary', 'text-white');
+                parent.classList.add('border-gray-200', 'hover:border-primary/70', 'hover:bg-gray-50');
+              }
+            });
+          }
+          
+          updateConfigSummary();
+          calculatePrice();
+        });
+      });
+      
+      // 为操作系统版本选择添加事件监听
+      document.getElementById('osVersion').addEventListener('change', function() {
+        this.setAttribute('data-value', this.options[this.selectedIndex].text);
+        updateConfigSummary();
+      });
+    });
+    
+    // 操作系统类型选择
+    function selectOsType(osType) {
+      currentOsType = osType;
+      
+      // 更新卡片样式
+      document.querySelectorAll('.grid > div').forEach(card => {
+        card.classList.remove('config-card-active');
+        card.classList.add('border-gray-200', 'hover:border-primary/50');
+      });
+      
+      // 为选中的卡片添加活跃样式
+      const cards = document.querySelectorAll('.grid > div');
+      for (let card of cards) {
+        if (card.textContent.includes(osType)) {
+          card.classList.add('config-card-active');
+          card.classList.remove('border-gray-200', 'hover:border-primary/50');
+          break;
+        }
+      }
+      
+      // 更新版本列表
+      updateOsVersions(osType);
+      
+      // 更新汇总
+      document.getElementById('osVersion').setAttribute('data-value', osType + '-' + document.getElementById('osVersion').options[document.getElementById('osVersion').selectedIndex].text);
+      updateConfigSummary();
+      calculatePrice();
+    }
+    
+    // 更新操作系统版本列表
+    function updateOsVersions(osType) {
+      const osVersion = document.getElementById('osVersion');
+      
+      // 清空现有选项
+      osVersion.innerHTML = '';
+      
+      // 根据选择的操作系统组添加相应版本
+      if (osType === 'Windows') {
+        osVersion.innerHTML = `
+          <option value="win10">Windows 10 专业版</option>
+          <option value="win11">Windows 11 专业版</option>
+          <option value="win2019">Windows Server 2019</option>
+          <option value="win2022">Windows Server 2022</option>
+        `;
+      } else if (osType === 'TencentOS') {
+        osVersion.innerHTML = `
+          <option value="tencentos32">TencentOS Server 3.2</option>
+          <option value="tencentos24">TencentOS Server 2.4</option>
+          <option value="tencentos31">TencentOS Server 3.1</option>
+        `;
+      } else if (osType === 'Ubuntu') {
+        osVersion.innerHTML = `
+          <option value="ubuntu18">Ubuntu 18.04 LTS</option>
+          <option value="ubuntu20">Ubuntu 20.04 LTS</option>
+          <option value="ubuntu22">Ubuntu 22.04 LTS</option>
+        `;
+      } else if (osType === 'Debian') {
+        osVersion.innerHTML = `
+          <option value="debian10">Debian 10</option>
+          <option value="debian11">Debian 11</option>
+          <option value="debian12">Debian 12</option>
+        `;
+      } else if (osType === 'CentOS') {
+        osVersion.innerHTML = `
+          <option value="centos7">CentOS 7</option>
+          <option value="centos8">CentOS 8</option>
+          <option value="centos9">CentOS Stream 9</option>
+        `;
+      }
+      
+      // 设置data-value属性
+      osVersion.setAttribute('data-value', osType + '-' + osVersion.options[osVersion.selectedIndex].text);
+    }
+    
+    // 更新数据盘值和价格
+    function updateDataDiskValue(value) {
+      const dataDiskInput = document.getElementById('data_disk');
+      const dataDiskValue = document.getElementById('data_disk_value');
+      const dataDiskPrice = document.getElementById('data_disk_price');
+      
+      // 更新显示值
+      dataDiskValue.textContent = `${value}G`;
+      
+      // 计算价格 (每GB 0.45元)
+      const price = value * 0.45;
+      dataDiskPrice.textContent = `¥${price.toFixed(2)}`;
+      
+      // 更新隐藏字段
+      dataDiskInput.value = value;
+      dataDiskInput.setAttribute('data-value', `${value}G`);
+      dataDiskInput.setAttribute('data-price', price);
+      
+      // 更新汇总和价格
+      updateConfigSummary();
+      calculatePrice();
+    }
+    
+    // 更新配置汇总
+    function updateConfigSummary() {
+      const summaryContainer = document.getElementById('configSummary');
+      summaryContainer.innerHTML = '';
+      
+      // 收集所有选中的配置项
+      const configItems = [];
+      
+      // 区域
+      document.querySelectorAll('input[name="configoption[5691]"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 操作系统
+      configItems.push({
+        name: '操作系统',
+        value: currentOsType
+      });
+      
+      // 操作系统版本
+      const osVersion = document.getElementById('osVersion');
+      configItems.push({
+        name: osVersion.getAttribute('data-config'),
+        value: osVersion.getAttribute('data-value') || osVersion.options[osVersion.selectedIndex].text
+      });
+      
+      // CPU
+      document.querySelectorAll('input[name="cpu"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 内存
+      document.querySelectorAll('input[name="memory"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 系统盘
+      document.querySelectorAll('input[name="system_disk"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 上行宽带
+      document.querySelectorAll('input[name="upload_bandwidth"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 下行宽带
+      document.querySelectorAll('input[name="download_bandwidth"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 数据盘
+      const dataDisk = document.getElementById('data_disk');
+      configItems.push({
+        name: dataDisk.getAttribute('data-config'),
+        value: dataDisk.getAttribute('data-value')
+      });
+      
+      // NAT转发
+      document.querySelectorAll('input[name="nat_ports"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 共享建站
+      document.querySelectorAll('input[name="shared_hosting"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 周期
+      document.querySelectorAll('input[name="billingcycle"]:checked').forEach(radio => {
+        configItems.push({
+          name: radio.getAttribute('data-config'),
+          value: radio.getAttribute('data-value')
+        });
+      });
+      
+      // 生成汇总HTML
+      configItems.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'flex justify-between py-1';
+        itemElement.innerHTML = `
+          <span class="text-gray-600">${item.name}</span>
+          <span class="font-medium">${item.value}</span>
+        `;
+        summaryContainer.appendChild(itemElement);
+      });
+    }
+    
+    // 计算价格
+    function calculatePrice() {
+      // 基础价格 (CPU + 内存)
+      let basePrice = 0;
+      
+      // CPU价格
+      const selectedCpu = document.querySelector('input[name="cpu"]:checked');
+      if (selectedCpu) {
+        basePrice += parseFloat(selectedCpu.getAttribute('data-price'));
+      }
+      
+      // 内存价格
+      const selectedMemory = document.querySelector('input[name="memory"]:checked');
+      if (selectedMemory) {
+        basePrice += parseFloat(selectedMemory.getAttribute('data-price'));
+      }
+      
+      // 系统盘加价
+      const selectedSystemDisk = document.querySelector('input[name="system_disk"]:checked');
+      if (selectedSystemDisk) {
+        basePrice += parseFloat(selectedSystemDisk.getAttribute('data-price'));
+      }
+      
+      // 上行宽带加价
+      const selectedUpload = document.querySelector('input[name="upload_bandwidth"]:checked');
+      if (selectedUpload) {
+        basePrice += parseFloat(selectedUpload.getAttribute('data-price'));
+      }
+      
+      // 下行宽带加价
+      const selectedDownload = document.querySelector('input[name="download_bandwidth"]:checked');
+      if (selectedDownload) {
+        basePrice += parseFloat(selectedDownload.getAttribute('data-price'));
+      }
+      
+      // 数据盘价格
+      const dataDisk = document.getElementById('data_disk');
+      basePrice += parseFloat(dataDisk.getAttribute('data-price'));
+      
+      // NAT转发加价
+      const selectedNat = document.querySelector('input[name="nat_ports"]:checked');
+      if (selectedNat) {
+        basePrice += parseFloat(selectedNat.getAttribute('data-price'));
+      }
+      
+      // 共享建站免费，无需加价
+      
+      // 获取周期折扣
+      const discount = periodDiscounts[currentPeriod];
+      
+      // 计算总价
+      const totalPrice = (basePrice * discount.multiplier) * (1 - discount.discountPercent / 100);
+      
+      // 更新价格显示
+      document.getElementById('monthlyPrice').textContent = `¥${basePrice.toFixed(2)}`;
+      document.getElementById('periodText').textContent = discount.text;
+      document.getElementById('totalPrice').textContent = `¥${totalPrice.toFixed(2)}`;
+      
+      // 更新折扣显示
+      const discountRow = document.getElementById('discountRow');
+      const discountText = document.getElementById('discountText');
+      if (discount.discountPercent > 0) {
+        discountRow.classList.remove('hidden');
+        discountText.textContent = `-${discount.discountPercent}%`;
+      } else {
+        discountRow.classList.add('hidden');
+      }
+      
+      // 更新价格详情
+      const monthlyAvg = totalPrice / discount.multiplier;
+      document.getElementById('priceDetail').textContent = `折后均价: ¥${monthlyAvg.toFixed(2)}/月`;
+    }
+  </script>
+</body></html>
