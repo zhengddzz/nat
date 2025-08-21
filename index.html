@@ -95,14 +95,14 @@
                   class="inline-flex items-center px-5 py-3 border-2 border-primary bg-primary text-white rounded-lg cursor-pointer card-transition hover:shadow-md">
                   <input type="radio" name="configoption[5691]" value="22892" checked="" class="sr-only"
                     data-config="区域" data-value="湖北襄阳高防机房">
-                  <img src="https://picsum.photos/id/237/20/20" alt="中国国旗" class="w-5 h-5 mr-2">
+                  <img src="https://blog.zhengddzz.com/wp-content/uploads/2025/08/CN.png" alt="中国国旗" class="w-5 h-5 mr-2">
                   湖北襄阳高防机房
                 </label>
                 <label
                   class="inline-flex items-center px-5 py-3 border-2 border-gray-200 hover:border-primary/70 rounded-lg cursor-pointer card-transition hover:bg-gray-50">
                   <input type="radio" name="configoption[5691]" value="wuhu" class="sr-only" data-config="区域"
                     data-value="芜湖弹性云电脑" onclick="window.location.href='wuhu.html'">
-                  <img src="https://picsum.photos/id/237/20/20" alt="中国国旗" class="w-5 h-5 mr-2">
+                  <img src="https://blog.zhengddzz.com/wp-content/uploads/2025/08/CN.png" alt="中国国旗" class="w-5 h-5 mr-2">
                   芜湖弹性云电脑
                 </label>
               </div>
@@ -903,8 +903,8 @@
       if (selectedInbound) {
         const inboundValue = selectedInbound.value;
         const inboundAddons = {
-          '22928': 5，   // 100Mbps
-          '22929': 10，  // 150Mbps
+          '22928': 5,   // 100Mbps
+          '22929': 10,  // 150Mbps
           '22930': 15   // 200Mbps
         };
         basePrice += inboundAddons[inboundValue] || 0;
@@ -916,7 +916,7 @@
         if (selectedDataDisk) {
           const dataDiskValue = selectedDataDisk.value;
           const dataDiskAddons = {
-            '22918': 15，  // 30G
+            '22918': 15,  // 30G
             '22919': 30，  // 60G
             '22920': 50   // 100G
           };
@@ -927,11 +927,11 @@
       // 计算NAT转发加价
       const selectedPorts = document.querySelector('input[name="configoption[5699]"]:checked');
       if (selectedPorts) {
-        const portsValue = selectedPorts.value;
+        const portsValue = selectedPorts。value;
         const portsAddons = {
-          '22932': 5，   // 30个
+          '22932': 5,   // 30个
           '22933': 10，  // 40个
-          '22934': 15,  // 50个
+          '22934': 15，  // 50个
           '22935': 40   // 100个
         };
         basePrice += portsAddons[portsValue] || 0;
